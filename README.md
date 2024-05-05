@@ -1,6 +1,7 @@
 ### EX7 Implementation of Link Analysis using HITS Algorithm
-### DATE: 
-### AIM: To implement Link Analysis using HITS Algorithm in Python.
+### DATE: 27-04-2024
+### AIM: 
+To implement Link Analysis using HITS Algorithm in Python.
 ### Description:
 <div align = "justify">
 The HITS (Hyperlink-Induced Topic Search) algorithm is a link analysis algorithm used to rank web pages. It identifies authority and hub pages 
@@ -33,6 +34,10 @@ in a network of web pages based on the structure of the links between them.
 
 ### Program:
 
+```
+Name: Pavan Kishore.M
+Reg No: 212221230076
+```
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -44,16 +49,16 @@ def hits_algorithm(adjacency_matrix, max_iterations=100, tol=1.0e-6):
     
     for i in range(max_iterations):
         # Authority update
-
-             /*WRITE YOUR CODE HERE
+        new_authority_scores = np.dot(adjacency_matrix.T, hub_scores)
+        new_authority_scores /= np.linalg.norm(new_authority_scores, ord=2)  # Normalizing
         
         # Hub update
-
-             /*WRITE YOUR CODE HERE
+        new_hub_scores = np.dot(adjacency_matrix, new_authority_scores)
+        new_hub_scores /= np.linalg.norm(new_hub_scores, ord=2)  # Normalizing
         
         # Check convergence
-
-             /*WRITE YOUR CODE HERE
+        authority_diff = np.linalg.norm(new_authority_scores - authority_scores, ord=2)
+        hub_diff = np.linalg.norm(new_hub_scores - hub_scores, ord=2)
         
         if authority_diff < tol and hub_diff < tol:
             break
@@ -63,7 +68,7 @@ def hits_algorithm(adjacency_matrix, max_iterations=100, tol=1.0e-6):
     
     return authority_scores, hub_scores
 
-# Example adjacency matrix (replace this with your own data)
+# Example adjacency matrix
 # For simplicity, using a random adjacency matrix
 adj_matrix = np.array([
     [0, 1, 1],
@@ -94,4 +99,9 @@ plt.show()
 
 ### Output:
 
+![o1](https://github.com/pavankishore-AIDS/WDM_EXP7/assets/94154941/7e5700e8-fd45-4767-a577-e86db3c2b668)
+
+
+
 ### Result:
+Thus Link Analysis using HITS Algorithm in Python is successfully implemented.
